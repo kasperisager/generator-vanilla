@@ -23,8 +23,7 @@ var Generator = module.exports = function (args, options) {
 util.inherits(Generator, yeoman.generators.Base);
 
 Generator.prototype.createFiles = function () {
-  var self = this
-    , today = new Date();
+  var today = new Date();
 
   this.year = today.getFullYear();
   this.directory = path.basename(this.dest._base);
@@ -40,11 +39,12 @@ Generator.prototype.createFiles = function () {
 
   this.template('about.php', 'settings/about.php');
 
-  var extra = function (option) {
-    return self.options.extras.indexOf(option) !== -1;
-  };
+  var extras = this.options.extras
+    , extra  = function (option) {
+      return extras.indexOf(option) !== -1;
+    };
 
-  if (extra('clas.hooks.php')) {
+  if (extra('class.hooks.php')) {
     this.template('class.hooks.php', 'settings/class.hooks.php');
   }
 
