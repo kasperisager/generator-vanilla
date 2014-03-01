@@ -39,7 +39,7 @@ Generator.prototype.createFiles = function () {
 
   this.template('about.php', 'settings/about.php');
 
-  var extras = this.options.extras
+  var extras = this.options.extras || []
     , extra  = function (option) {
       return extras.indexOf(option) !== -1;
     };

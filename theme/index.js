@@ -40,7 +40,7 @@ Generator.prototype.createFiles = function () {
   this.copy('default.master.tpl', 'views/default.master.tpl');
   this.template('about.php', 'about.php');
 
-  var extras = this.options.extras
+  var extras = this.options.extras || []
     , extra  = function (option) {
       return extras.indexOf(option) !== -1;
     };
