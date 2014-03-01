@@ -41,7 +41,6 @@ describe('vanilla generator', function () {
     var expected = [
       'package.json'
     , '.editorconfig'
-    , '.gitignore'
     ];
 
     helpers.mockPrompt(this.app, fixture);
