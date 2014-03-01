@@ -22,27 +22,6 @@ var Generator = module.exports = function (args, options) {
 
 util.inherits(Generator, yeoman.generators.Base);
 
-Generator.prototype.askFor = function () {
-  var next = this.async()
-    , prompts = [{
-      type: 'checkbox'
-    , name: 'applicationExtras'
-    , message: 'Optional files to include in your application'
-    , choices: [
-        'class.hooks.php'
-      , 'configuration.php'
-      , 'bootstrap.php'
-      , 'structure.php'
-      ]
-    }];
-
-  this.prompt(prompts, function (props) {
-    this.extras = props.applicationExtras || [];
-
-    next();
-  }.bind(this));
-};
-
 Generator.prototype.createFiles = function () {
   var self = this
     , today = new Date();
@@ -62,7 +41,7 @@ Generator.prototype.createFiles = function () {
   this.template('about.php', 'settings/about.php');
 
   var extra = function (option) {
-    return self.extras.indexOf(option) !== -1;
+    return self.options.extras.indexOf(option) !== -1;
   };
 
   if (extra('clas.hooks.php')) {

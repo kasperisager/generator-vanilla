@@ -131,6 +131,29 @@ Generator.prototype.askForAddon = function () {
     , name: 'description'
     , message: 'Describe your addon in a sentence or two'
     , default: this.addon.description
+    }, {
+      type: 'checkbox'
+    , name: 'extras'
+    , message: 'Optional files to include in your application'
+    , choices: [
+        'class.hooks.php'
+      , 'configuration.php'
+      , 'bootstrap.php'
+      , 'structure.php'
+      ]
+    , when: function (props) {
+        return props.type === 'Application';
+      }
+    }, {
+      type: 'checkbox'
+    , name: 'extras'
+    , message: 'Optional files to include in your theme'
+    , choices: [
+        'class.themehooks.php'
+      ]
+    , when: function (props) {
+        return props.type === 'Theme';
+      }
     }];
 
   this.prompt(prompts, function (props) {
@@ -146,6 +169,7 @@ Generator.prototype.askForAddon = function () {
       , author: this.author.name
       , email: this.author.email
       , url: this.author.url
+      , extras: props.extras || []
       }
     }, next);
   }.bind(this));
