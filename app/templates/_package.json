@@ -1,0 +1,17 @@
+{
+  "name": "<%= _.slugify(name) %>",
+  "version": "1.0.0",
+  "title": "<%= name %>",<% if (description) { %>
+  "description": "<%= description %>",<% } if (license) { %>
+  "license": "<%= license %>",<% } %>
+  "author": {
+    "name": "<%= author.name %>"<% if (author.email) { %>,
+    "email": "<%= author.email %>"<% } if (author.url) { %>,
+    "url": "<%= author.url %>"<% } %>
+  },
+  "private": true,
+  "devDependencies": {},
+  "engines": {
+    "node": ">=0.10.0"
+  }
+}
