@@ -26,7 +26,6 @@ describe('vanilla generator', function () {
 
       this.app = helpers.createGenerator('vanilla:app', [
         '../../app'
-      , '../../addon'
       ]);
       this.app.options['skip-install'] = true;
       this.app.options['skip-welcome-message'] = true;
