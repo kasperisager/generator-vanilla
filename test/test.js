@@ -41,7 +41,7 @@ describe('vanilla generator', function () {
     assert(app !== undefined);
   });
 
-  describe('application sub-generator', function () {
+  describe('application', function () {
     it('creates expected files', function (done) {
       var prompt = _.extend({}, promptFixture, {
         type: 'Application'
@@ -72,7 +72,7 @@ describe('vanilla generator', function () {
     });
   });
 
-  describe('plugin sub-generator', function () {
+  describe('plugin', function () {
     it('creates expected files', function (done) {
       var prompt = _.extend({}, promptFixture, {
         type: 'Plugin'
@@ -93,7 +93,7 @@ describe('vanilla generator', function () {
     });
   });
 
-  describe('theme sub-generator', function () {
+  describe('theme', function () {
     it('creates expected files', function (done) {
       var prompt = _.extend({}, promptFixture, {
         type: 'Theme'

@@ -160,28 +160,53 @@ Generator.prototype.askForAddon = function () {
     this.type = props.type;
     this.name = props.name;
     this.description = props.description;
+    this.extras = props.extras || [];
 
-    this.invoke('vanilla:addon', {
-      args: [this.name]
-    , options: {
-        type: this.type
-      , description: this.description
-      , license: this.license
-      , author: this.author.name
-      , email: this.author.email
-      , url: this.author.url
-      , extras: props.extras || []
-      }
-    }, next);
+    next();
   }.bind(this));
 };
 
 Generator.prototype.createFiles = function () {
-  var today = new Date();
+  var self  = this
+    , today = new Date();
 
-  this.year = today.getFullYear();
+  this.year      = today.getFullYear();
+  this.directory = path.basename(this.dest._base);
 
   this.copy('editorconfig', '.editorconfig');
   this.template('licenses/' + this.license + '.md', 'LICENSE.md');
   this.template('_package.json', 'package.json');
+
+  var extra = function (template, dest) {
+      if (self.extras.indexOf(template) !== -1) {
+        self.template(template, dest);
+      }
+    };
+
+  switch (this.type) {
+    case 'Application':
+      this.template('about.php', 'settings/about.php');
+
+      // Optional application files
+      extra('class.hooks.php', 'settings/class.hooks.php');
+      extra('configuration.php', 'settings/configuration.php');
+      extra('bootstrap.php', 'settings/bootstrap.php');
+      extra('structure.php', 'settings/structure.php');
+      break;
+
+    case 'Plugin':
+      this.template(
+        'class.plugin.php',
+        'class.' + this.directory.toLowerCase() + '.plugin.php'
+      );
+      break;
+
+    case 'Theme':
+      this.copy('default.master.tpl', 'views/default.master.tpl');
+      this.template('about.php', 'about.php');
+
+      // Optional theme files
+      extra('class.themehooks.php', 'class.themehooks.php');
+      break;
+  }
 };
