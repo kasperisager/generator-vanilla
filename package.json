@@ -29,6 +29,7 @@
   "devDependencies": {
     "mocha": "*",
     "underscore": "*",
+    "istanbul": "*",
     "coveralls": "*",
     "mocha-lcov-reporter": "*"
   },
