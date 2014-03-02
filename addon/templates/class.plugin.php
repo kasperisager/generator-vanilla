@@ -1,6 +1,6 @@
 <?php if (!defined('APPLICATION')) exit;
 
-$PluginInfo['<%= directory %>'] = array(
+$<%= type %>Info['<%= directory %>'] = array(
     'Name'        => "<%= name %>",<% if (description) { %>
     'Description' => "<%= description %>",<% } %>
     'Version'     => '1.0.0',

@@ -6,7 +6,7 @@ var fs     = require('fs')
   , chalk  = require('chalk')
   , yeoman = require('yeoman-generator');
 
-var Generator = module.exports = function (args, options) {
+var Generator = module.exports = function () {
   yeoman.generators.Base.apply(this, arguments);
 
   this.pkg = yeoman.file.readJSON(path.join(__dirname, '../package.json'));
@@ -161,10 +161,11 @@ Generator.prototype.askForAddon = function () {
     this.name = props.name;
     this.description = props.description;
 
-    this.invoke('vanilla:' + this.type.toLowerCase(), {
+    this.invoke('vanilla:addon', {
       args: [this.name]
     , options: {
-        description: this.description
+        type: this.type
+      , description: this.description
       , license: this.license
       , author: this.author.name
       , email: this.author.email
