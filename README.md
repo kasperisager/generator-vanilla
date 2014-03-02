@@ -1,6 +1,6 @@
 # generator-vanilla
 
-[![Build Status](https://secure.travis-ci.org/kasperisager/generator-vanilla.png?branch=master)](https://travis-ci.org/kasperisager/generator-vanilla) [![Code Climate](https://codeclimate.com/github/kasperisager/generator-vanilla.png)](https://codeclimate.com/github/kasperisager/generator-vanilla)
+[![Build Status](https://secure.travis-ci.org/kasperisager/generator-vanilla.png?branch=master)](https://travis-ci.org/kasperisager/generator-vanilla) [![Code Climate](https://codeclimate.com/github/kasperisager/generator-vanilla.png)](https://codeclimate.com/github/kasperisager/generator-vanilla) [![Dependency Status](https://gemnasium.com/kasperisager/generator-vanilla.png)](https://gemnasium.com/kasperisager/generator-vanilla)
 
 > [Yeoman](http://yeoman.io) generator
 
