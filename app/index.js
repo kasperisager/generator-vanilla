@@ -184,29 +184,29 @@ Generator.prototype.createFiles = function () {
     };
 
   switch (this.type) {
-    case 'Application':
-      this.template('about.php', 'settings/about.php');
+  case 'Application':
+    this.template('about.php', 'settings/about.php');
 
-      // Optional application files
-      extra('class.hooks.php', 'settings/class.hooks.php');
-      extra('configuration.php', 'settings/configuration.php');
-      extra('bootstrap.php', 'settings/bootstrap.php');
-      extra('structure.php', 'settings/structure.php');
-      break;
+    // Optional application files
+    extra('class.hooks.php', 'settings/class.hooks.php');
+    extra('configuration.php', 'settings/configuration.php');
+    extra('bootstrap.php', 'settings/bootstrap.php');
+    extra('structure.php', 'settings/structure.php');
+    break;
 
-    case 'Plugin':
-      this.template(
-        'class.plugin.php',
-        'class.' + this.directory.toLowerCase() + '.plugin.php'
-      );
-      break;
+  case 'Plugin':
+    this.template(
+      'class.plugin.php',
+      'class.' + this.directory.toLowerCase() + '.plugin.php'
+    );
+    break;
 
-    case 'Theme':
-      this.copy('default.master.tpl', 'views/default.master.tpl');
-      this.template('about.php', 'about.php');
+  case 'Theme':
+    this.copy('default.master.tpl', 'views/default.master.tpl');
+    this.template('about.php', 'about.php');
 
-      // Optional theme files
-      extra('class.themehooks.php', 'class.themehooks.php');
-      break;
+    // Optional theme files
+    extra('class.themehooks.php', 'class.themehooks.php');
+    break;
   }
 };
