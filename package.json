@@ -14,7 +14,7 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "istanbul cover _mocha && cat ./coverage/lcov.info | coveralls"
   },
   "files": [
     "app"
@@ -28,7 +28,9 @@
   },
   "devDependencies": {
     "mocha": "*",
-    "underscore": "^1.6.0"
+    "underscore": "*",
+    "coveralls": "*",
+    "mocha-lcov-reporter": "*"
   },
   "peerDependencies": {
     "yo": ">=1.0.0"
