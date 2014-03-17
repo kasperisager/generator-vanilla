@@ -178,6 +178,7 @@ Generator.prototype.createFiles = function () {
 
   if (this.license) {
     this.template('licenses/' + this.license + '.md', 'LICENSE.md');
+  } else {
     this.license = 'Proprietary';
   }
 
