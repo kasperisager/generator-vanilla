@@ -174,8 +174,12 @@ Generator.prototype.createFiles = function () {
   this.directory = path.basename(this.dest._base);
 
   this.copy('editorconfig', '.editorconfig');
-  this.template('licenses/' + this.license + '.md', 'LICENSE.md');
   this.template('_package.json', 'package.json');
+
+  if (this.license) {
+    this.template('licenses/' + this.license + '.md', 'LICENSE.md');
+    this.license = 'Proprietary';
+  }
 
   var extra = function (template, dest) {
       if (self.extras.indexOf(template) !== -1) {
