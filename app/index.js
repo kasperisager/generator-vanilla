@@ -26,7 +26,7 @@ var Generator = module.exports = function () {
   if (fs.existsSync(this.dest._base + '/package.json')) {
     this.addon = this.dest.readJSON('package.json');
   } else {
-    this.addon = {author: false};
+    this.addon = {author: false, repository: false};
   }
 
   this.on('end', function () {
@@ -132,6 +132,11 @@ Generator.prototype.askForAddon = function () {
     , message: 'Describe your addon in a sentence or two'
     , default: this.addon.description
     }, {
+      type: 'input'
+    , name: 'url'
+    , message: 'Optionally, enter the addons website'
+    , default: this.addon.repository.url
+    }, {
       type: 'checkbox'
     , name: 'extras'
     , message: 'Optional files to include in your application'
@@ -160,6 +165,7 @@ Generator.prototype.askForAddon = function () {
     this.type = props.type;
     this.name = props.name;
     this.description = props.description;
+    this.url = props.url;
     this.extras = props.extras || [];
 
     next();

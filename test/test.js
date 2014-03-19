@@ -46,6 +46,7 @@ describe('vanilla generator', function () {
         type: 'Application'
       , name: 'Awesome App'
       , description: 'This is an awesome app!'
+      , url: 'https://github.com/johndoe/awesome-app'
       , extras: [
           'class.hooks.php'
         , 'configuration.php'
@@ -77,6 +78,7 @@ describe('vanilla generator', function () {
         type: 'Plugin'
       , name: 'Awesome Plugin'
       , description: 'This is an awesome plugin!'
+      , url: 'https://github.com/johndoe/awesome-plugin'
       })
       , expected = _.extend([], expectedFixture, [
         'class.temp.plugin.php'
@@ -98,6 +100,7 @@ describe('vanilla generator', function () {
         type: 'Theme'
       , name: 'Awesome Theme'
       , description: 'This is an awesome theme!'
+      , url: 'https://github.com/johndoe/awesome-theme'
       , extras: [
           'class.themehooks.php'
         ]
