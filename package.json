@@ -1,7 +1,7 @@
 {
   "name": "generator-vanilla",
-  "version": "0.0.0",
-  "description": "Yeoman generator",
+  "version": "0.0.1",
+  "description": "A Yeoman generator for Vanilla that will make your Application, Plugin, and Theme development a breeze",
   "license": "MIT",
   "main": "app/index.js",
   "repository": "kasperisager/generator-vanilla",
