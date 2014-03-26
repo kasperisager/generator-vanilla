@@ -17,7 +17,7 @@ Basically, he wears a top hat, lives in your computer, and waits for you to tell
 
 Not every new computer comes with a Yeoman pre-installed. He lives in the [npm](https://npmjs.org) package repository. You only have to ask for him once, then he packs up and moves into your hard drive. *Make sure you clean up, he likes new and shiny things.*
 
-```
+```sh
 $ npm install -g yo
 ```
 
@@ -27,13 +27,13 @@ Yeoman travels light. He didn't pack any generators when he moved in. You can th
 
 To install generator-vanilla from npm, run:
 
-```
+```sh
 $ npm install -g generator-vanilla
 ```
 
 Finally, initiate the generator:
 
-```
+```sh
 $ yo vanilla
 ```
 
@@ -44,6 +44,6 @@ Yeoman has a heart of gold. He's a person with feelings and opinions, but he's v
 If you'd like to get to know Yeoman better and meet some of his friends, [Grunt](http://gruntjs.com) and [Bower](http://bower.io), check out the complete [Getting Started Guide](https://github.com/yeoman/yeoman/wiki/Getting-Started).
 
 
-## License
+---
 
-MIT
+Copyright 2014 &copy; [Kasper Kronborg Isager](http://kasperisager.github.io). Licensed under the terms of the [MIT License](LICENSE.md)
