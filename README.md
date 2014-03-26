@@ -1,6 +1,6 @@
 # generator-vanilla
 
-[![GitHub version](https://badge.fury.io/gh/kasperisager%2Fgenerator-vanilla.png)](http://badge.fury.io/gh/kasperisager%2Fgenerator-vanilla) [![Build Status](https://secure.travis-ci.org/kasperisager/generator-vanilla.png?branch=master)](https://travis-ci.org/kasperisager/generator-vanilla) [![Coverage Status](https://coveralls.io/repos/kasperisager/generator-vanilla/badge.png?branch=master)](https://coveralls.io/r/kasperisager/generator-vanilla?branch=master) [![Code Climate](https://codeclimate.com/github/kasperisager/generator-vanilla.png)](https://codeclimate.com/github/kasperisager/generator-vanilla) [![Dependency Status](https://gemnasium.com/kasperisager/generator-vanilla.png)](https://gemnasium.com/kasperisager/generator-vanilla)
+[![Release](http://img.shields.io/github/release/kasperisager/generator-vanilla.svg)](https://github.com/kasperisager/generator-vanilla/releases) [![Build Status](http://img.shields.io/travis/kasperisager/generator-vanilla.svg)](https://travis-ci.org/kasperisager/generator-vanilla) [![Coverage Status](http://img.shields.io/coveralls/kasperisager/generator-vanilla.svg)](https://coveralls.io/r/kasperisager/generator-vanilla) [![Code Climate](http://img.shields.io/codeclimate/github/kasperisager/generator-vanilla.svg)](https://codeclimate.com/github/kasperisager/generator-vanilla) [![Dependency Status](https://gemnasium.com/kasperisager/generator-vanilla.svg)](https://gemnasium.com/kasperisager/generator-vanilla)
 
 > [Yeoman](http://yeoman.io) generator
 
