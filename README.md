@@ -2,7 +2,7 @@
 
 [![Release](http://img.shields.io/npm/v/generator-vanilla.svg)](https://www.npmjs.org/package/generator-vanilla) [![Build Status](http://img.shields.io/travis/kasperisager/generator-vanilla.svg)](https://travis-ci.org/kasperisager/generator-vanilla) [![Coverage Status](http://img.shields.io/coveralls/kasperisager/generator-vanilla.svg)](https://coveralls.io/r/kasperisager/generator-vanilla) [![Code Climate](http://img.shields.io/codeclimate/github/kasperisager/generator-vanilla.svg)](https://codeclimate.com/github/kasperisager/generator-vanilla) [![Dependency Status](https://gemnasium.com/kasperisager/generator-vanilla.svg)](https://gemnasium.com/kasperisager/generator-vanilla) [![Downloads](http://img.shields.io/npm/dm/generator-vanilla.svg)](https://www.npmjs.org/package/generator-vanilla)
 
-> [Yeoman](http://yeoman.io) generator
+A [Yeoman](http://yeoman.io) generator for Vanilla that will make your Application, Plugin, and Theme development a breeze
 
 
 ## Getting Started
