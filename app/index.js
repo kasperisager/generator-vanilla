@@ -39,7 +39,7 @@ var Generator = module.exports = Base.extend({
   init: function () {
     var self = this
       , cb   = this.async()
-      , base = this.dest._base
+      , base = this.dest._base()
       , type = this.config.get('type');
 
     utils.getAddon(base, type, function (err, addon) {
@@ -184,7 +184,7 @@ var Generator = module.exports = Base.extend({
       , today = new Date();
 
     this.year      = today.getFullYear();
-    this.directory = path.basename(this.dest._base);
+    this.directory = path.basename(this.dest._base());
 
     this.copy('editorconfig', '.editorconfig');
 
