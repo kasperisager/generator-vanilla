@@ -1,32 +1,26 @@
 'use strict';
 
-var fs     = require('fs')
-  , util   = require('util')
-  , path   = require('path')
-  , chalk  = require('chalk')
-  , yeoman = require('yeoman-generator');
+var fs    = require('fs')
+  , _     = require('lodash')
+  , path  = require('path')
+  , chalk = require('chalk')
+  , utils = require('../lib/utils')
+  , yo    = require('yeoman-generator')
+  , Base  = yo.generators.Base;
 
-var Generator = module.exports = yeoman.generators.Base.extend({
-  init: function () {
-    this.pkg = yeoman.file.readJSON(path.join(__dirname, '../package.json'));
+_.mixin(require('lodash-deep'));
+
+var Generator = module.exports = Base.extend({
+  constructor: function () {
+    Base.apply(this, arguments);
 
     this.option('skip-install', {
-      desc: 'Do not install eventual dependecies',
-      type: String,
-      required: false
+      desc: 'Do not install eventual dependecies'
     });
 
     this.option('skip-welcome-message', {
-      desc: 'Do not show the Yeoman welcome message',
-      type: String,
-      required: false
+      desc: 'Do not show the Yeoman welcome message'
     });
-
-    if (fs.existsSync(this.dest._base + '/package.json')) {
-      this.addon = this.dest.readJSON('package.json');
-    } else {
-      this.addon = {author: false, repository: false};
-    }
 
     this.on('end', function () {
       if (!this.options['skip-install']) {
@@ -39,6 +33,19 @@ var Generator = module.exports = yeoman.generators.Base.extend({
           'and start hacking away.\n'
         ));
       }
+    });
+  },
+
+  init: function () {
+    var self = this
+      , cb   = this.async()
+      , base = this.dest._base
+      , type = this.config.get('type');
+
+    utils.getAddon(base, type, function (err, addon) {
+      self.addon = addon;
+
+      cb();
     });
   },
 
@@ -61,24 +68,24 @@ var Generator = module.exports = yeoman.generators.Base.extend({
         type: 'input'
       , name: 'author'
       , message: 'What is your full name?'
-      , default: this.addon.author.name
+      , default: _.deepGetValue(this, 'addon.author.name')
       }, {
         type: 'input'
       , name: 'email'
       , message: 'I would also like your email'
-      , default: this.addon.author.email
+      , default: _.deepGetValue(this, 'addon.author.email')
       }, {
         type: 'input'
       , name: 'url'
       , message: 'Optionally, enter your website'
-      , default: this.addon.author.url
+      , default: _.deepGetValue(this, 'addon.author.url')
       }];
 
     this.prompt(prompts, function (props) {
       this.author = {
-        name: props.author
-      , email: props.email
-      , url: props.url
+        name  : props.author
+      , email : props.email
+      , url   : props.url
       };
 
       next();
@@ -97,7 +104,7 @@ var Generator = module.exports = yeoman.generators.Base.extend({
         type: 'list'
       , name: 'license'
       , message: 'Which license would you like to use?'
-      , default: this.addon.license || 'MIT'
+      , default: _.deepGetValue(this, 'addon.license') || 'MIT'
       , choices: [{
           name: 'None'
         , value: false
@@ -117,22 +124,23 @@ var Generator = module.exports = yeoman.generators.Base.extend({
         type: 'list'
       , name: 'type'
       , message: 'What kind of addon is this?'
+      , default: this.config.get('type')
       , choices: ['Application', 'Plugin', 'Theme']
       }, {
         type: 'input'
       , name: 'name'
       , message: 'Enter the name of your addon'
-      , default: this.addon.title
+      , default: _.deepGetValue(this, 'addon.name')
       }, {
         type: 'input'
-      , name: 'description'
+      , name: 'desc'
       , message: 'Describe your addon in a sentence or two'
-      , default: this.addon.description
+      , default: _.deepGetValue(this, 'addon.desc')
       }, {
         type: 'input'
       , name: 'url'
       , message: 'Optionally, enter the addons website'
-      , default: this.addon.repository.url
+      , default: _.deepGetValue(this, 'addon.url')
       }, {
         type: 'checkbox'
       , name: 'extras'
@@ -161,9 +169,11 @@ var Generator = module.exports = yeoman.generators.Base.extend({
     this.prompt(prompts, function (props) {
       this.type = props.type;
       this.name = props.name;
-      this.description = props.description;
+      this.desc = props.desc;
       this.url = props.url;
       this.extras = props.extras || [];
+
+      this.config.set('type', this.type);
 
       next();
     }.bind(this));
@@ -177,7 +187,6 @@ var Generator = module.exports = yeoman.generators.Base.extend({
     this.directory = path.basename(this.dest._base);
 
     this.copy('editorconfig', '.editorconfig');
-    this.template('_package.json', 'package.json');
 
     if (this.license) {
       this.template('licenses/' + this.license + '.md', 'LICENSE.md');
@@ -186,10 +195,10 @@ var Generator = module.exports = yeoman.generators.Base.extend({
     }
 
     var extra = function (template, dest) {
-        if (self.extras.indexOf(template) !== -1) {
-          self.template(template, dest);
-        }
-      };
+      if (self.extras.indexOf(template) !== -1) {
+        self.template(template, dest);
+      }
+    };
 
     switch (this.type) {
     case 'Application':
@@ -217,5 +226,7 @@ var Generator = module.exports = yeoman.generators.Base.extend({
       extra('class.themehooks.php', 'class.themehooks.php');
       break;
     }
+
+    this.config.save();
   }
 });

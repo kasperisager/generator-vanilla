@@ -2,7 +2,7 @@
 
 $<%= type %>Info['<%= directory %>'] = array(
     'Name'        => "<%= name %>",<% if (description) { %>
-    'Description' => "<%= description %>",<% } %>
+    'Description' => "<%= desc %>",<% } %>
     'Version'     => '1.0.0',<% if (url) { %>
     'PluginUrl'   => '<%= url %>',<% } %>
     'Author'      => "<%= author.name %>",<% if (author.email) { %>
