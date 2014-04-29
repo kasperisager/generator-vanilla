@@ -1,7 +1,6 @@
 'use strict';
 
-var fs    = require('fs')
-  , _     = require('lodash')
+var _     = require('lodash')
   , path  = require('path')
   , chalk = require('chalk')
   , utils = require('../lib/utils')
