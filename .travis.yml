@@ -1,7 +1,6 @@
-language: node_js
+language: php
 node_js:
   - '0.10'
 before_install:
   - currentfolder=${PWD##*/}
   - if [ "$currentfolder" != 'generator-vanilla' ]; then cd .. && eval "mv $currentfolder generator-vanilla" && cd generator-vanilla; fi
-
