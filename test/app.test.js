@@ -1,4 +1,3 @@
-/*global describe, beforeEach, it */
 'use strict';
 
 var path    = require('path')
@@ -17,12 +16,10 @@ var path    = require('path')
   , 'LICENSE.md'
   ];
 
-describe('vanilla generator', function () {
+describe('addon generator', function () {
   beforeEach(function (done) {
     helpers.testDirectory(path.join(__dirname, 'temp'), function (err) {
-      if (err) {
-        return done(err);
-      }
+      if (err) return done(err);
 
       this.app = helpers.createGenerator('vanilla:app', [
         '../../app'
@@ -66,7 +63,6 @@ describe('vanilla generator', function () {
 
       this.app.run({}, function () {
         helpers.assertFile(expected);
-
         done();
       });
     });
@@ -88,7 +84,6 @@ describe('vanilla generator', function () {
 
       this.app.run({}, function () {
         helpers.assertFile(expected);
-
         done();
       });
     });
@@ -115,7 +110,6 @@ describe('vanilla generator', function () {
 
       this.app.run({}, function () {
         helpers.assertFile(expected);
-
         done();
       });
     });
