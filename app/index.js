@@ -14,19 +14,11 @@ var Generator = module.exports = Base.extend({
   constructor: function () {
     Base.apply(this, arguments);
 
-    this.option('skip-install', {
-      desc: 'Do not install eventual dependecies'
-    });
-
     this.option('skip-welcome-message', {
       desc: 'Do not show the Yeoman welcome message'
     });
 
     this.on('end', function () {
-      if (!this.options['skip-install']) {
-        this.npmInstall();
-      }
-
       if (!this.options['skip-welcome-message']) {
         console.log(chalk.yellow(
           '\nThat was it! Open up this folder in your favorite editor\n' +
