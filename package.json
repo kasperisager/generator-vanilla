@@ -30,6 +30,7 @@
   },
   "devDependencies": {
     "mocha": "*",
+    "chai": "*",
     "underscore": "*",
     "istanbul": "*",
     "coveralls": "*",

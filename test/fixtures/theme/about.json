@@ -1,0 +1,12 @@
+{
+  "name": "Theme Fixture",
+  "desc": "This is a foo bar theme fixture",
+  "version": "1.0.0",
+  "url": "http://example.com/johndoe/fixture",
+  "license": "WTFPL",
+  "author": {
+    "name": "John Doe",
+    "email": "john@example.com",
+    "url": "http://example.com/johndoe"
+  }
+}
