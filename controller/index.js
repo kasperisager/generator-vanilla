@@ -1,7 +1,7 @@
 'use strict';
 
-var utils = require('../lib/utils')
-  , yo    = require('yeoman-generator')
+var yo    = require('yeoman-generator')
+  , utils = require('../lib/utils')
   , NamedBase = yo.generators.NamedBase;
 
 var Generator = module.exports = NamedBase.extend({
@@ -11,6 +11,9 @@ var Generator = module.exports = NamedBase.extend({
       , base = this.dest._base()
       , type = this.config.get('type');
 
+    var today = new Date();
+    this.year = today.getFullYear();
+
     utils.getAddon(base, type, function (err, addon) {
       self.addon = addon;
       cb();
@@ -18,9 +21,6 @@ var Generator = module.exports = NamedBase.extend({
   },
 
   createFiles: function () {
-    var today = new Date();
-    this.year = today.getFullYear();
-
     this.template(
       'class.controller.php',
       'controllers/class.' + this.name.toLowerCase() + 'controller.php'
