@@ -36,7 +36,6 @@ var Generator = module.exports = Base.extend({
 
     utils.getAddon(base, type, function (err, addon) {
       self.addon = addon;
-
       cb();
     });
   },
