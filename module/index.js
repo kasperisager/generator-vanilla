@@ -1,7 +1,6 @@
 'use strict';
 
-var _     = require('lodash')
-  , yo    = require('yeoman-generator')
+var yo    = require('yeoman-generator')
   , utils = require('../lib/utils')
   , NamedBase = yo.generators.NamedBase;
 
@@ -45,6 +44,6 @@ var Generator = module.exports = NamedBase.extend({
     this.template(
       'module.' + this.extension
     , 'views/modules/' + this.name.toLowerCase() + '.' + this.extension
-    )
+  );
   }
 });
