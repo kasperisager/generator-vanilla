@@ -9,7 +9,7 @@ var _     = require('lodash')
 
 _.mixin(require('lodash-deep'));
 
-var Generator = module.exports = Base.extend({
+var AppGenerator = Base.extend({
   constructor: function () {
     Base.apply(this, arguments);
 
@@ -169,7 +169,7 @@ var Generator = module.exports = Base.extend({
     }.bind(this));
   },
 
-  createFiles: function () {
+  files: function () {
     var self  = this
       , today = new Date();
 
@@ -220,3 +220,5 @@ var Generator = module.exports = Base.extend({
     this.config.save();
   }
 });
+
+module.exports = AppGenerator;

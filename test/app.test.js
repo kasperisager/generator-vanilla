@@ -36,7 +36,7 @@ describe('addon generator', function () {
     assert(app !== undefined);
   });
 
-  describe('application', function () {
+  describe('application generation', function () {
     it('creates expected files', function (done) {
       var prompt = _.extend({}, promptFixture, {
         type: 'Application'
@@ -67,7 +67,7 @@ describe('addon generator', function () {
     });
   });
 
-  describe('plugin', function () {
+  describe('plugin generation', function () {
     it('creates expected files', function (done) {
       var prompt = _.extend({}, promptFixture, {
         type: 'Plugin'
@@ -88,7 +88,7 @@ describe('addon generator', function () {
     });
   });
 
-  describe('theme', function () {
+  describe('theme generation', function () {
     it('creates expected files', function (done) {
       var prompt = _.extend({}, promptFixture, {
         type: 'Theme'

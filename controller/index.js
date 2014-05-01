@@ -4,7 +4,7 @@ var yo    = require('yeoman-generator')
   , utils = require('../lib/utils')
   , NamedBase = yo.generators.NamedBase;
 
-var Generator = module.exports = NamedBase.extend({
+var ControllerGenerator = NamedBase.extend({
   init: function () {
     var self = this
       , cb   = this.async()
@@ -20,10 +20,12 @@ var Generator = module.exports = NamedBase.extend({
     });
   },
 
-  createFiles: function () {
+  files: function () {
     this.template(
       'class.controller.php',
       'controllers/class.' + this.name.toLowerCase() + 'controller.php'
     );
   }
 });
+
+module.exports = ControllerGenerator;
