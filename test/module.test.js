@@ -21,9 +21,45 @@ describe('module sub-generator', function () {
       'modules/class.awesomemodule.php'
     ];
 
+    helpers.mockPrompt(this.module, {
+      templates: false
+    });
+
     this.module.run({}, function () {
       helpers.assertFile(expected);
       done();
     });
   });
+
+  describe('template generation', function () {
+    it('creates Smarty views when selected as option', function (done) {
+      var expected = [
+        'views/modules/awesome.tpl'
+      ];
+
+      helpers.mockPrompt(this.module, {
+        templates: 'Smarty'
+      });
+
+      this.module.run({}, function () {
+        helpers.assertFile(expected);
+        done();
+      });
+    });
+
+    it('creates PHP views when selected as option', function (done) {
+      var expected = [
+        'views/modules/awesome.php'
+      ];
+
+      helpers.mockPrompt(this.module, {
+        templates: 'PHP'
+      });
+
+      this.module.run({}, function () {
+        helpers.assertFile(expected);
+        done();
+      });
+    });
+  })
 });

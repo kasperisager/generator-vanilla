@@ -8,14 +8,27 @@ var Generator = module.exports = NamedBase.extend({
   constructor: function () {
     NamedBase.apply(this, arguments);
 
-    this.option('tpl', {
-      desc: 'Use Smarty template for the module view'
-    });
-
     this.argument('target', {
       desc: 'Asset in which to render the module'
     , defaults: 'Panel'
     });
+  },
+
+  askForTemplate: function () {
+    var next = this.async()
+      , prompts = [{
+        type: 'list'
+      , name: 'templates'
+      , message: 'Which templating language would you like to use?'
+      , default: this.config.get('templates') || 'Smarty'
+      , choices: ['PHP', 'Smarty']
+      }];
+
+    this.prompt(prompts, function (props) {
+      this.config.set('templates', props.templates);
+
+      next();
+    }.bind(this));
   },
 
   init: function () {
@@ -27,7 +40,15 @@ var Generator = module.exports = NamedBase.extend({
     var today = new Date();
     this.year = today.getFullYear();
 
-    this.extension = (this.options.tpl) ?  'tpl' : 'php';
+    switch (this.config.get('templates')) {
+    case 'Smarty':
+      this.extension = 'tpl';
+      break;
+    case 'PHP':
+    default:
+      this.extension = 'php';
+      break;
+    }
 
     utils.getAddon(base, type, function (err, addon) {
       self.addon = addon;
