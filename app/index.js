@@ -1,10 +1,10 @@
 'use strict';
 
-var _     = require('lodash')
-  , path  = require('path')
+var path  = require('path')
+  , _     = require('lodash')
   , chalk = require('chalk')
-  , utils = require('../lib/utils')
   , yo    = require('yeoman-generator')
+  , utils = require('../lib/utils')
   , Base  = yo.generators.Base;
 
 _.mixin(require('lodash-deep'));
