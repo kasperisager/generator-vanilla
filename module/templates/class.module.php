@@ -18,7 +18,7 @@ class <%= _(name).camelize() %>Module extends Gdn_Module
      * @access public
      * @return string The asset in which the module appears by default
      */
-    public function AssetTarget()
+    public function assetTarget()
     {
         return '<%= target %>';
     }
@@ -30,10 +30,10 @@ class <%= _(name).camelize() %>Module extends Gdn_Module
      * @access public
      * @return string The HTML to render the module to the screen
      */
-    public function ToString()
+    public function toString()
     {
         if ($this->Visible) {
-            return $this->FetchView();
+            return $this->fetchView();
         }
     }
 }
