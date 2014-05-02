@@ -11,7 +11,9 @@ describe('generator utitilies', function () {
         , base    = path.resolve(__dirname, 'fixtures/application');
 
       utils.getAddon(base, 'Application', function (err, addon) {
-        if (err) return done(err);
+        if (err) {
+          return done(err);
+        }
 
         addon.should.deep.equal(fixture);
         done();
@@ -23,7 +25,9 @@ describe('generator utitilies', function () {
         , base    = path.resolve(__dirname, 'fixtures/theme');
 
       utils.getAddon(base, 'Theme', function (err, addon) {
-        if (err) return done(err);
+        if (err) {
+          return done(err);
+        }
 
         addon.should.deep.equal(fixture);
         done();

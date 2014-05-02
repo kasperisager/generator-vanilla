@@ -19,7 +19,9 @@ var path    = require('path')
 describe('addon generator', function () {
   beforeEach(function (done) {
     helpers.testDirectory(path.join(__dirname, 'temp'), function (err) {
-      if (err) return done(err);
+      if (err) {
+        return done(err);
+      }
 
       this.app = helpers.createGenerator('vanilla:app', [
         '../../app'
