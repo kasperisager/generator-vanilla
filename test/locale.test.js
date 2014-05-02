@@ -25,11 +25,12 @@ describe('locale sub-generator', function () {
         return done(err);
       }
 
-      locale.run({}, function () {
-        helpers.assertFile([
-          'locale/en-CA.php'
-        ]);
+      var expected = [
+        'locale/en-CA.php'
+      ];
 
+      locale.run({}, function () {
+        helpers.assertFile(expected);
         done();
       });
     });
@@ -41,11 +42,12 @@ describe('locale sub-generator', function () {
         return done(err);
       }
 
-      locale.run({}, function () {
-        helpers.assertNoFile([
-          'locale/qq-QQ.php'
-        ]);
+      var notExpected = [
+        'locale/qq-QQ.php'
+      ];
 
+      locale.run({}, function () {
+        helpers.assertNoFile(notExpected);
         done();
       });
     });
