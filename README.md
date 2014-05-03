@@ -46,4 +46,4 @@ If you'd like to get to know Yeoman better and meet some of his friends, [Grunt]
 
 ---
 
-Copyright 2014 &copy; [Kasper Kronborg Isager](http://kasperisager.github.io). Licensed under the terms of the [MIT License](LICENSE.md)
+Copyright &copy; 2014 [Kasper Kronborg Isager](http://kasperisager.github.io). Licensed under the terms of the [MIT License](LICENSE.md)
