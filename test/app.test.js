@@ -40,6 +40,28 @@ describe('addon generator', function () {
     assert(app !== undefined);
   });
 
+  it('does not generate license if proprietary', function (done) {
+    var prompt = _.extend({}, promptFixture, {
+        license: false
+      })
+      , notExpected = [
+        'LICENSE.md'
+      ];
+
+    generateAddon('no-license', function (err, addon) {
+      if (err) {
+        return done(err);
+      }
+
+      helpers.mockPrompt(addon, prompt);
+
+      addon.run({}, function () {
+        helpers.assertNoFile(notExpected);
+        done();
+      });
+    });
+  });
+
   describe('application generation', function () {
     it('creates expected files', function (done) {
       var prompt = _.extend({}, promptFixture, {
