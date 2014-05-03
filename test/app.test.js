@@ -13,6 +13,7 @@ var path    = require('path')
   , expectedFixture = [
     'package.json'
   , '.editorconfig'
+  , 'README.md'
   , 'LICENSE.md'
   ];
 

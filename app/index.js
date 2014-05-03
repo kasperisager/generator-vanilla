@@ -184,6 +184,8 @@ var AppGenerator = Base.extend({
       this.license = 'Proprietary';
     }
 
+    this.template('README.md');
+
     var extra = function (template, dest) {
       if (self.extras.indexOf(template) !== -1) {
         self.template(template, dest);
