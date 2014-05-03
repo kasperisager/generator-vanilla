@@ -5,13 +5,13 @@ var path    = require('path')
 
 describe('module sub-generator', function () {
   beforeEach(function (done) {
-    helpers.testDirectory(path.join(__dirname, 'temp'), function (err) {
+    helpers.testDirectory(path.join(__dirname, 'temp', 'module'), function (err) {
       if (err) {
         return done(err);
       }
 
       this.module = helpers.createGenerator('vanilla:module', [
-        '../../module'
+        '../../../module'
       ], ['Awesome']);
 
       done();

@@ -17,22 +17,23 @@ var path    = require('path')
   , 'LICENSE.md'
   ];
 
-describe('addon generator', function () {
-  beforeEach(function (done) {
-    helpers.testDirectory(path.join(__dirname, 'temp'), function (err) {
-      if (err) {
-        return done(err);
-      }
+var generateAddon = function (type, done) {
+  helpers.testDirectory(path.join(__dirname, 'temp', type), function (err) {
+    if (err) {
+      return done(err);
+    }
 
-      this.app = helpers.createGenerator('vanilla:app', [
-        '../../app'
-      ]);
-      this.app.options['skip-welcome-message'] = true;
+    var addon = helpers.createGenerator('vanilla:app', [
+      '../../../app'
+    ]);
 
-      done();
-    }.bind(this));
+    addon.options['skip-welcome-message'] = true;
+
+    done(false, addon);
   });
+}
 
+describe('addon generator', function () {
   it('can be imported without blowing up', function () {
     var app = require('../app');
 
@@ -61,11 +62,17 @@ describe('addon generator', function () {
       , 'settings/structure.php'
       ]);
 
-      helpers.mockPrompt(this.app, prompt);
+      generateAddon('application', function (err, application) {
+        if (err) {
+          return done(err);
+        }
 
-      this.app.run({}, function () {
-        helpers.assertFile(expected);
-        done();
+        helpers.mockPrompt(application, prompt);
+
+        application.run({}, function () {
+          helpers.assertFile(expected);
+          done();
+        });
       });
     });
   });
@@ -79,14 +86,20 @@ describe('addon generator', function () {
       , url: 'https://github.com/johndoe/awesome-plugin'
       })
       , expected = _.extend([], expectedFixture, [
-        'class.temp.plugin.php'
+        'class.plugin.plugin.php'
       ]);
 
-      helpers.mockPrompt(this.app, prompt);
+      generateAddon('plugin', function (err, plugin) {
+        if (err) {
+          return done(err);
+        }
 
-      this.app.run({}, function () {
-        helpers.assertFile(expected);
-        done();
+        helpers.mockPrompt(plugin, prompt);
+
+        plugin.run({}, function () {
+          helpers.assertFile(expected);
+          done();
+        });
       });
     });
   });
@@ -108,11 +121,17 @@ describe('addon generator', function () {
       , 'class.themehooks.php'
       ]);
 
-      helpers.mockPrompt(this.app, prompt);
+      generateAddon('theme', function (err, theme) {
+        if (err) {
+          return done(err);
+        }
 
-      this.app.run({}, function () {
-        helpers.assertFile(expected);
-        done();
+        helpers.mockPrompt(theme, prompt);
+
+        theme.run({}, function () {
+          helpers.assertFile(expected);
+          done();
+        });
       });
     });
   });

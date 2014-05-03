@@ -5,16 +5,16 @@ var path    = require('path')
   , helpers = require('yeoman-generator').test;
 
 var generateLocale = function (code, done) {
-  helpers.testDirectory(path.join(__dirname, 'temp'), function (err) {
+  helpers.testDirectory(path.join(__dirname, 'temp', 'locale', code), function (err) {
     if (err) {
       return done(err);
     }
 
     var locale = helpers.createGenerator('vanilla:locale', [
-      '../../locale'
+      '../../../../locale'
     ], code);
 
-    done(null, locale);
+    done(false, locale);
   });
 }
 

@@ -5,11 +5,11 @@ var path    = require('path')
 
 describe('model sub-generator', function () {
   beforeEach(function (done) {
-    helpers.testDirectory(path.join(__dirname, 'temp'), function (err) {
+    helpers.testDirectory(path.join(__dirname, 'temp', 'model'), function (err) {
       if (err) return done(err);
 
       this.model = helpers.createGenerator('vanilla:model', [
-        '../../model'
+        '../../../model'
       ], ['Awesome']);
 
       done();
