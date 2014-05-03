@@ -212,10 +212,10 @@ var AppGenerator = Base.extend({
 
     case 'Theme':
       this.copy('default.master.tpl', 'views/default.master.tpl');
-      this.template('about.php', 'about.php');
+      this.template('about.php');
 
       // Optional theme files
-      extra('class.themehooks.php', 'class.themehooks.php');
+      extra('class.themehooks.php');
       break;
     }
 
