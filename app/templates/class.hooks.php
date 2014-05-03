@@ -9,8 +9,7 @@
  * @package   <%= _(name).camelize() %>
  * @since     1.0.0
  */
-class <%= _(name).classify() %>Hooks implements Gdn_IPlugin
-{
+class <%= _(name).classify() %>Hooks implements Gdn_IPlugin {
     /**
      * This will run when you "Enable" the application
      *
@@ -18,8 +17,7 @@ class <%= _(name).classify() %>Hooks implements Gdn_IPlugin
      * @access public
      * @return bool
      */
-    public function setup()
-    {
+    public function setup() {
         return true;
     }
 }

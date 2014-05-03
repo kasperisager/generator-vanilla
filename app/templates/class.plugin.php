@@ -20,8 +20,7 @@ $<%= type %>Info['<%= directory %>'] = array(
  * @package   <%= _(name).camelize() %>
  * @since     1.0.0
  */
-class <%= _(name).classify() %>Plugin extends Gdn_Plugin
-{
+class <%= _(name).classify() %>Plugin extends Gdn_Plugin {
     /**
      * This will run when you "Enable" the plugin
      *
@@ -29,8 +28,7 @@ class <%= _(name).classify() %>Plugin extends Gdn_Plugin
      * @access public
      * @return bool
      */
-    public function setup()
-    {
+    public function setup() {
         return true;
     }
 }

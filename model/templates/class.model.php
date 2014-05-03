@@ -9,6 +9,5 @@
  * @package   <%= _(addon.name).camelize() %>
  * @since     <%= addon.version %><% } %>
  */
-class <%= _(name).classify() %>Model extends Gdn_Model
-{
+class <%= _(name).classify() %>Model extends Gdn_Model {
 }

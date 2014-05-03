@@ -9,8 +9,7 @@
  * @package   <%= _(addon.name).camelize() %>
  * @since     <%= addon.version %><% } %>
  */
-class <%= _(name).camelize() %>Module extends Gdn_Module
-{
+class <%= _(name).camelize() %>Module extends Gdn_Module {
     /**
      * Returns the name of the asset where this component should be rendered.
      *<% if (addon) { %>
@@ -18,8 +17,7 @@ class <%= _(name).camelize() %>Module extends Gdn_Module
      * @access public
      * @return string The asset in which the module appears by default
      */
-    public function assetTarget()
-    {
+    public function assetTarget() {
         return '<%= target %>';
     }
 
@@ -30,8 +28,7 @@ class <%= _(name).camelize() %>Module extends Gdn_Module
      * @access public
      * @return string The HTML to render the module to the screen
      */
-    public function toString()
-    {
+    public function toString() {
         if ($this->Visible) {
             return $this->fetchView();
         }

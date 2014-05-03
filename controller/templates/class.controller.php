@@ -9,6 +9,5 @@
  * @package   <%= _(addon.name).camelize() %>
  * @since     <%= addon.version %><% } %>
  */
-class <%= _(name).classify() %>Controller extends Gdn_Controller
-{
+class <%= _(name).classify() %>Controller extends Gdn_Controller {
 }
