@@ -20,8 +20,8 @@ var ModuleGenerator = NamedBase.extend({
         type: 'list'
       , name: 'templates'
       , message: 'Which templating language would you like to use?'
-      , default: this.config.get('templates') || 'Smarty'
-      , choices: ['PHP', 'Smarty']
+      , default: this.config.get('templates')
+      , choices: ['Smarty', 'PHP']
       }];
 
     this.prompt(prompts, function (props) {

@@ -1,67 +1,58 @@
 'use strict';
 
 var path    = require('path')
-  , helpers = require('yeoman-generator').test;
-
-describe('module sub-generator', function () {
-  beforeEach(function (done) {
-    helpers.testDirectory(path.join(__dirname, 'temp', 'module'), function (err) {
-      if (err) {
-        return done(err);
-      }
-
-      this.module = helpers.createGenerator('vanilla:module', [
-        '../../../module'
-      ], ['Awesome']);
-
-      done();
-    }.bind(this));
-  });
-
-  it('creates expected files', function (done) {
-    var expected = [
+  , _       = require('lodash')
+  , helpers = require('yeoman-generator').test
+  , expectedFixture = [
       'modules/class.awesomemodule.php'
     ];
 
-    helpers.mockPrompt(this.module, {
-      templates: false
-    });
+var generateModule = function (template, done) {
+  helpers.testDirectory(path.join(__dirname, 'temp', 'module', template), function (err) {
+    if (err) {
+      return done(err);
+    }
 
-    this.module.run({}, function () {
-      helpers.assertFile(expected);
-      done();
-    });
+    var module = helpers.createGenerator('vanilla:module', [
+      '../../../../module'
+    ], ['Awesome']);
+
+    done(false, module);
   });
+};
 
-  describe('template generation', function () {
-    it('creates Smarty views when selected as option', function (done) {
-      var expected = [
-        'views/modules/awesome.tpl'
-      ];
+describe('module sub-generator', function () {
+  it('creates base files and Smarty views', function (done) {
+    var expected = _.extend([], expectedFixture, [
+      'views/modules/awesome.tpl'
+    ]);
 
-      helpers.mockPrompt(this.module, {
+    generateModule('smarty', function (err, module) {
+      helpers.mockPrompt(module, {
         templates: 'Smarty'
       });
 
-      this.module.run({}, function () {
+      module.run({}, function () {
         helpers.assertFile(expected);
         done();
       });
     });
+  });
 
-    it('creates PHP views when selected as option', function (done) {
-      var expected = [
-        'views/modules/awesome.php'
-      ];
+  it('creates base files and PHP views', function (done) {
+    var expected = _.extend([], expectedFixture, [
+      'views/modules/awesome.php'
+    ]);
 
-      helpers.mockPrompt(this.module, {
+    generateModule('php', function (err, module) {
+      helpers.mockPrompt(module, {
         templates: 'PHP'
       });
 
-      this.module.run({}, function () {
+      module.run({}, function () {
         helpers.assertFile(expected);
         done();
       });
     });
-  })
+  });
 });
