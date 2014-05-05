@@ -8,7 +8,9 @@ gulp.task('styles', function () {
   return gulp.src('<%= extension %>/*.<%= extension %>')
     .pipe($.plumber())<% if (extension === 'less') { %>
     .pipe($.less())<% } else if (extension === 'scss') { %>
-    .pipe($.sass())<% } %>
+    .pipe($.sass({
+      errLogToConsole: true
+    }))<% } %>
     .pipe($.autoprefixer())
     .pipe($.csslint('design/.csslintrc'))
     .pipe($.csslint.reporter('default'))
