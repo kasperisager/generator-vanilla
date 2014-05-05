@@ -87,9 +87,9 @@ var AssetsGenerator = Base.extend({
     this.template('main.js', 'js/src/main.js');
 
     this.extension  = this.preprocessor.toLowerCase();
-    this.stylesheet = this.extension + '/main.' + this.extension;
+    this.stylesheet = this.extension + '/custom.' + this.extension;
 
-    this.template('main.' + this.extension, this.stylesheet);
+    this.template('custom.' + this.extension, this.stylesheet);
 
     switch (this.buildtool) {
     case 'Gulp':

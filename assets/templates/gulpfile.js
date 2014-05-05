@@ -5,14 +5,13 @@ var gulp = require('gulp')
   , $ = require('gulp-load-plugins')();
 
 gulp.task('styles', function () {
-  return gulp.src('<%= stylesheet %>')
+  return gulp.src('<%= extension %>/*.<%= extension %>')
     .pipe($.plumber())<% if (extension === 'less') { %>
     .pipe($.less())<% } else if (extension === 'scss') { %>
     .pipe($.sass())<% } %>
     .pipe($.autoprefixer())
     .pipe($.csslint('design/.csslintrc'))
     .pipe($.csslint.reporter('default'))
-    .pipe($.rename('custom.css'))
     .pipe(gulp.dest('design'))
     .pipe($.size({showFiles: true}));
 });

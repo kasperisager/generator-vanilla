@@ -56,7 +56,7 @@ module.exports = function (grunt) {
         , sourceMapFilename: 'design/custom.css.map'
         }
       , files: {
-          'design/custom.css': '<%= stylesheet %>'
+          'design/custom.css': '<%= extension %>/*.<%= extension %>'
         }
       }
     },<% } else if (extension === 'scss') { %>
@@ -67,7 +67,7 @@ module.exports = function (grunt) {
           sourceComments: 'map'
         }
       , files: {
-          'design/custom.css': '<%= stylesheet %>'
+          'design/custom.css': '<%= extension %>/*.<%= extension %>'
         }
       }
     },<% } %>

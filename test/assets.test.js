@@ -31,7 +31,7 @@ describe('assets sub-generator', function () {
   it('creates base files and Gulp workflow with LESS', function (done) {
     var expected = _.extend([], expectedFixture, [
       'gulpfile.js'
-    , 'less/main.less'
+    , 'less/custom.less'
     ]);
 
     generateAssets('gulp-less', function (err, assets) {
@@ -54,7 +54,7 @@ describe('assets sub-generator', function () {
   it('creates base files and Gulp workflow with SCSS', function (done) {
     var expected = _.extend([], expectedFixture, [
       'gulpfile.js'
-    , 'scss/main.scss'
+    , 'scss/custom.scss'
     ]);
 
     generateAssets('gulp-sass', function (err, assets) {
@@ -77,7 +77,7 @@ describe('assets sub-generator', function () {
   it('creates base files and Grunt workflow with LESS', function (done) {
     var expected = _.extend([], expectedFixture, [
       'Gruntfile.js'
-    , 'less/main.less'
+    , 'less/custom.less'
     ]);
 
     generateAssets('grunt-less', function (err, assets) {
@@ -100,7 +100,7 @@ describe('assets sub-generator', function () {
   it('creates base files and Grunt workflow with SCSS', function (done) {
     var expected = _.extend([], expectedFixture, [
       'Gruntfile.js'
-    , 'scss/main.scss'
+    , 'scss/custom.scss'
     ]);
 
     generateAssets('grunt-sass', function (err, assets) {
