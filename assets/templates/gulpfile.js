@@ -56,9 +56,7 @@ gulp.task('wiredep', function () {
   var wiredep = require('wiredep').stream;
 
   return gulp.src('<%= extension %>/**/*.<%= extension %>')
-    .pipe(wiredep({
-      directory: 'bower_components'
-    }))
+    .pipe(wiredep())
     .pipe(gulp.dest('<%= extension %>'));
 });
 
