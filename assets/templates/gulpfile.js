@@ -62,7 +62,9 @@ gulp.task('wiredep', function () {
     .pipe(gulp.dest('<%= extension %>'));
 });
 
-gulp.task('default', ['wiredep', 'styles', 'scripts', 'images', 'fonts']);
+gulp.task('default', ['wiredep'], function () {
+  gulp.start('styles', 'scripts', 'images', 'fonts');
+});
 
 gulp.task('watch', function () {
   var server = $.livereload();
