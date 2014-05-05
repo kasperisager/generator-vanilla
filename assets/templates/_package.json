@@ -18,7 +18,7 @@
     "gulp-cache": "0.1.x",
     "gulp-imagemin": "0.5.x",
     "gulp-flatten": "0.0.x",
-    "gulp-rename": "1.2.x",
+    "gulp-concat": "2.2.x",
     "gulp-filter": "0.4.x"<% } else if (buildtool === 'Grunt') { %>,
     "grunt": "0.4.x",
     "grunt-cli": "0.1.x",
