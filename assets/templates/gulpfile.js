@@ -83,3 +83,6 @@ gulp.task('watch', function () {
   gulp.watch('design/images/**/*', ['images']);
   gulp.watch('bower.json', ['wiredep']);
 });
+
+// Expose Gulp to external tools
+module.exports = gulp;
