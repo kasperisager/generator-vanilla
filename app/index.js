@@ -18,6 +18,7 @@ var AppGenerator = Base.extend({
     });
 
     this.on('end', function () {
+      /* istanbul ignore if */
       if (!this.options['skip-welcome-message']) {
         console.log(chalk.yellow(
           '\nThat was it! Open up this folder in your favorite editor\n' +
@@ -41,6 +42,7 @@ var AppGenerator = Base.extend({
 
   welcome: function () {
     // Have Yeoman greet the user
+    /* istanbul ignore if */
     if (!this.options['skip-welcome-message']) {
       console.log(this.yeoman);
       console.log(chalk.yellow(
@@ -83,6 +85,7 @@ var AppGenerator = Base.extend({
   },
 
   askForLicense: function () {
+    /* istanbul ignore if */
     if (!this.options['skip-welcome-message']) {
       console.log(chalk.yellow(
         '\nNow for a bit of information about your addon...\n'
@@ -141,7 +144,7 @@ var AppGenerator = Base.extend({
         , 'bootstrap.php'
         , 'structure.php'
         ]
-      , when: function (props) {
+      , when: /* istanbul ignore next */ function (props) {
           return props.type === 'Application';
         }
       }, {
@@ -151,7 +154,7 @@ var AppGenerator = Base.extend({
       , choices: [
           'class.themehooks.php'
         ]
-      , when: function (props) {
+      , when: /* istanbul ignore next */ function (props) {
           return props.type === 'Theme';
         }
       }];
@@ -186,6 +189,7 @@ var AppGenerator = Base.extend({
 
     this.template('README.md');
 
+    /* istanbul ignore next */
     var extra = function (template, dest) {
       if (self.extras.indexOf(template) !== -1) {
         self.template(template, dest);

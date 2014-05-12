@@ -16,6 +16,7 @@ var AssetsGenerator = Base.extend({
     });
 
     this.on('end', function () {
+      /* istanbul ignore if */
       if (!this.options['skip-install']) {
         this.npmInstall();
       }
