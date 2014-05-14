@@ -55,9 +55,13 @@ module.exports = function (grunt) {
         , sourceMapURL: 'custom.css.map'
         , sourceMapFilename: 'design/custom.css.map'
         }
-      , files: {
-          'design/custom.css': '<%= extension %>/*.<%= extension %>'
-        }
+      , files: [{
+          expand: true
+        , cwd: '<%= extension %>/'
+        , src: ['*.<%= extension %>']
+        , dest: 'design/'
+        , ext: '.css'
+       }]
       }
     },<% } else if (extension === 'scss') { %>
 
@@ -66,9 +70,16 @@ module.exports = function (grunt) {
         options: {
           sourceComments: 'map'
         }
-      , files: {
-          'design/custom.css': '<%= extension %>/*.<%= extension %>'
-        }
+      , files: [{
+          expand: true
+        , cwd: '<%= extension %>/'
+        , src: [
+            '*.<%= extension %>'
+          , '!_*.<%= extension %>'
+          ]
+        , dest: 'design/'
+        , ext: '.css'
+       }]
       }
     },<% } %>
 
