@@ -17,13 +17,13 @@
     "test": "istanbul cover _mocha && cat ./coverage/lcov.info | coveralls"
   },
   "files": [
-    "lib"
-  , "app"
-  , "assets"
-  , "controller"
-  , "locale"
-  , "model"
-  , "module"
+    "lib",
+    "app",
+    "assets",
+    "controller",
+    "locale",
+    "model",
+    "module"
   ],
   "keywords": [
     "yeoman-generator"
