@@ -17,7 +17,7 @@ module.exports = function (grunt) {
     watch: {
       bower: {
         files: ['bower.json']
-      , tasks: ['bowerInstall']
+      , tasks: ['wiredep']
       }
     , js: {
         files: ['js/src/**/*.js']
@@ -123,7 +123,7 @@ module.exports = function (grunt) {
       }
     },
 
-    bowerInstall: {
+    wiredep: {
       dist: {
         src: ['<%= extension %>/**/*.<%= extension %>']
       }
@@ -132,7 +132,7 @@ module.exports = function (grunt) {
   });
 
   grunt.registerTask('default', [
-    'bowerInstall'<% if (extension === 'less') { %>
+    'wiredep'<% if (extension === 'less') { %>
   , 'less'<% } else if (extension === 'scss') { %>
   , 'sass'<% } %>
   , 'autoprefixer'

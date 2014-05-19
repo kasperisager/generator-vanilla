@@ -31,7 +31,7 @@
     "grunt-contrib-csslint": "0.2.x",
     "grunt-contrib-concat": "0.4.x",
     "grunt-contrib-imagemin": "0.7.x",
-    "grunt-bower-install": "1.4.x",
+    "grunt-wiredep": "1.7.x",
     "grunt-autoprefixer": "0.7.x"<% } %>
   },
   "engines": {
