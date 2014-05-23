@@ -17,7 +17,6 @@ $<%= type %>Info['<%= directory %>'] = array(
  * @author    <%= author.name %><% if (author.email) { %> <<%= author.email %>><% } %>
  * @copyright <%= year %> (c) <%= author.name %>
  * @license   <%= license %>
- * @package   <%= _(name).camelize() %>
  * @since     1.0.0
  */
 class <%= _(name).classify() %>Plugin extends Gdn_Plugin {
