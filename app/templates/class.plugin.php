@@ -1,7 +1,7 @@
 <?php if (!defined('APPLICATION')) exit;
 
 $<%= type %>Info['<%= directory %>'] = array(
-    'Name'        => "<%= name %>",<% if (description) { %>
+    'Name'        => "<%= name %>",<% if (desc) { %>
     'Description' => "<%= desc %>",<% } %>
     'Version'     => '1.0.0',<% if (url) { %>
     'PluginUrl'   => '<%= url %>',<% } %>

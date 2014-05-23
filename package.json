@@ -1,6 +1,6 @@
 {
   "name": "generator-vanilla",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "A Yeoman generator for Vanilla that will make your Application, Plugin, and Theme development a breeze.",
   "license": "MIT",
   "main": "app/index.js",
@@ -17,13 +17,13 @@
     "test": "istanbul cover _mocha && cat ./coverage/lcov.info | coveralls"
   },
   "files": [
-    "lib"
-  , "app"
-  , "assets"
-  , "controller"
-  , "locale"
-  , "model"
-  , "module"
+    "lib",
+    "app",
+    "assets",
+    "controller",
+    "locale",
+    "model",
+    "module"
   ],
   "keywords": [
     "yeoman-generator"
