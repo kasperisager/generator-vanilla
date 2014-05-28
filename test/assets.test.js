@@ -55,6 +55,7 @@ describe('assets sub-generator', function () {
     var expected = _.extend([], expectedFixture, [
       'gulpfile.js'
     , 'scss/custom.scss'
+    , 'scss/.scss-lint.yml'
     ]);
 
     generateAssets('gulp-sass', function (err, assets) {
@@ -101,6 +102,7 @@ describe('assets sub-generator', function () {
     var expected = _.extend([], expectedFixture, [
       'Gruntfile.js'
     , 'scss/custom.scss'
+    , 'scss/.scss-lint.yml'
     ]);
 
     generateAssets('grunt-sass', function (err, assets) {

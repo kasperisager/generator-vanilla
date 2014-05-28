@@ -92,6 +92,12 @@ var AssetsGenerator = Base.extend({
 
     this.template('custom.' + this.extension, this.stylesheet);
 
+    switch (this.preprocessor) {
+    case 'SCSS':
+      this.template('scss-lint.yml', 'scss/.scss-lint.yml');
+      break;
+    }
+
     switch (this.buildtool) {
     case 'Gulp':
       this.template('gulpfile.js');

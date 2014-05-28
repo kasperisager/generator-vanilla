@@ -32,7 +32,7 @@ module.exports = function (grunt) {
       }<% } else if (extension === 'scss') { %>
     , sass: {
         files: ['scss/**/*.scss']
-      , tasks: ['sass', 'autoprefixer', 'csslint']
+      , tasks: ['scsslint', 'sass', 'autoprefixer', 'csslint']
       }<% } %>
     , livereload: {
         options: {
@@ -81,6 +81,13 @@ module.exports = function (grunt) {
         , ext: '.css'
        }]
       }
+    },
+
+    scsslint: {
+      options: {
+	config: '<%= extension %>/.scss-lint.yml'
+      }
+    , all: ['<%= extension %>/**/*.<%= extension %>']
     },<% } %>
 
     autoprefixer: {
@@ -123,6 +130,17 @@ module.exports = function (grunt) {
       }
     },
 
+    svgmin: {
+      dist: {
+	files: [{
+	  expand: true,
+	  cwd: 'design/images',
+	  src: '**/*.svg',
+	  dest: 'design/images'
+	}]
+      }
+    },
+
     wiredep: {
       dist: {
         src: ['<%= extension %>/**/*.<%= extension %>']
@@ -134,11 +152,13 @@ module.exports = function (grunt) {
   grunt.registerTask('default', [
     'wiredep'<% if (extension === 'less') { %>
   , 'less'<% } else if (extension === 'scss') { %>
+  , 'scsslint'
   , 'sass'<% } %>
   , 'autoprefixer'
   , 'concat'
   , 'jshint'
   , 'csslint'
   , 'imagemin'
+  , 'svgmin'
   ]);
 };
