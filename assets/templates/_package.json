@@ -18,7 +18,6 @@
     "gulp-bower-files": "0.2.x",
     "gulp-cache": "0.1.x",
     "gulp-imagemin": "0.5.x",
-    "gulp-svgmin": "0.4.x",
     "gulp-flatten": "0.0.x",
     "gulp-concat": "2.2.x",
     "gulp-filter": "0.4.x"<% } else if (buildtool === 'Grunt') { %>,

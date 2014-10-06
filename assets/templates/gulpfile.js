@@ -39,22 +39,12 @@ gulp.task('scripts', function () {
 });
 
 gulp.task('images', function () {
-  var bitmap = $.filter('**/*.{gif,jpeg,jpg,png}')
-    , vector = $.filter('**/*.svg');
-
   return gulp.src('design/images/**/*')
-    .pipe(bitmap)
     .pipe($.cache($.imagemin({
       optimizationLevel : 3
     , progressive       : true
     , interlaced        : true
     })))
-    .pipe(bitmap.restore())
-
-    .pipe(vector)
-    .pipe($.svgmin())
-    .pipe(vector.restore())
-
     .pipe(gulp.dest('design/images'))
     .pipe($.size({showFiles: true}));
 });
