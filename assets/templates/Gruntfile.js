@@ -130,17 +130,6 @@ module.exports = function (grunt) {
       }
     },
 
-    svgmin: {
-      dist: {
-	files: [{
-	  expand: true,
-	  cwd: 'design/images',
-	  src: '**/*.svg',
-	  dest: 'design/images'
-	}]
-      }
-    },
-
     wiredep: {
       dist: {
         src: ['<%= extension %>/**/*.<%= extension %>']
@@ -159,6 +148,5 @@ module.exports = function (grunt) {
   , 'jshint'
   , 'csslint'
   , 'imagemin'
-  , 'svgmin'
   ]);
 };
